@@ -59,10 +59,10 @@ $(document).ready(function(){
         $(".section8 ul li:nth-child(n+2)").css("border","2px solid red");
     });
     $('#tab1').click(function(){
-        $('#tab1_content').text("Tab 1 content");
+        $('.active').text("Tab 1 content");
            });
     $('#tab2').click(function(){
-        $('#tab1_content').text("tab 2 conetent");
+        $('.active').text("tab 2 conetent");
     });
     $('.section10 button').click(function(){
         $("html").animate({scrollTop: 0}, 1000);
