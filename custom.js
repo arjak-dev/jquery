@@ -1,63 +1,62 @@
 $(document).ready(function(){
-    $("#btm1").click(function(){
-        $("#div1").animate({
+    $(".section1 button").click(function(){
+        $(".section1 div").animate({
             height: "300px",
         });
     });
-    $("#btm2").click(function(){
-        $("#div2").animate({ marginLeft: 400});
+    $(".section2 button").click(function(){
+        $(".section2 div").animate({ marginLeft: 400});
     });
     $(window).scroll(function(){
-        if($(window).scrollTop()>700 || $(window).scrollTop<900){
+        if($(window).scrollTop()>=700 && $(window).scrollTop()<=900){
             //console.log($(window).scrollTop());
-            $('#div3').css({
+            $('.section3 div').css({
                 position: 'fixed',
                 top: '0',
                 width: '100%'
             });
         }
-        if($(window).scrollTop()>900) {
-            $('#div3').css({position: 'static'});
+        else{
+            $('.section3 div').css({position: 'static'});
         }
-        if($(window).scrollTop()<700) {
-            $('#div3').css({position: 'static'});
-        }
+        // if($(window).scrollTop()>900) {
+        //     $('#div3').css({position: 'static'});
+        // }
+        // if($(window).scrollTop()<700) {
+        //     
+        // }
 
         
     });
-    $("#btm3").click(function(){
-        $("#para1").wrap("<div style='background:blue'></div>");
+    $('.section5 button').click(function(){
+        $(".section5 p:nth-child(3)").wrap("<div style='background:red'></div>");
     });
-    $("#btm4").click(function(){
-        $('#test3').val('Done');
-        $('#btm4').prop("disabled",true);
+    $('.section9 button').click(function(){
+        $('.section9 input').val('Done');
+        $('.section9 button').prop("disabled",true);
     });
-    $("#btm5").click(function(){
-       var p_blocks = $("#section6").find("p");
-       for(const [i, val] of Object.entries(p_blocks)){
-        if($(val).hasClass("intro") == false) {
-            $(val).css("background", "red");
-            break;
-        }
-    }
-    //    console.log("hello");
-    //    console.log(Object.entries(p_blocks));
-    });
-    $('#btm6').click(function(){
-        var li = $('#section7').find('li');
-        for(const[i,val] of Object.entries(li)){
-            if(($(val).text()) >=4 && ($(val).text()) <=6){
-                $(val).css("background", "red");
+    $(".section6 button").click(function(){
+        $(".section6 p").each(function(index,value){
+            const p_block = $(value).attr('class');
+            if(p_block == undefined){
+                $(value).css("background","none")
             }
-        }
+        })
+   });
+    $('.section7 button').click(function(){
+        $(".section7 ul li:nth-child(n+4):nth-child(-n+6)").css("background", "red");
+
+
+
+        // var li = $('#section7').find('li');
+        // for(const[i,val] of Object.entries(li)){
+        //     if(($(val).text()) >=4 && ($(val).text()) <=6){
+        //         $(val).
+        //     }
+        // }
     });
-    $('#btm7').click(function(){
-        var li = $('#section8').find('li');
-        for(const[i,val] of Object.entries(li)){
-            if(($(val).text()) >1){
-                $(val).css("background", "red");
-            }
-        }
+    $('.section8 button').click(function(){
+        $(".section8 ul li:nth-child(n+2)").css("border","2px solid red");
     });
     $('#tab1').click(function(){
         $('#tab1_content').text("Tab 1 content");
@@ -65,7 +64,7 @@ $(document).ready(function(){
     $('#tab2').click(function(){
         $('#tab1_content').text("tab 2 conetent");
     });
-    $('#btm8').click(function(){
+    $('.section10 button').click(function(){
         $("html").animate({scrollTop: 0}, 1000);
     });
 });
